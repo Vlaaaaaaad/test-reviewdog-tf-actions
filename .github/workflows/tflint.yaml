@@ -33,11 +33,12 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2
 
-      - name: Install Terraform
-        uses: hashicorp/setup-terraform@v1
-
-      - name: Initialize Terrafrom
-        working-directory: .
+      - name: Install dependencies
+        env:
+          HOMEBREW_NO_INSTALL_CLEANUP: 1
+        run: |
+          brew install terraform
+      - name: Terraform init
         run: |
           terraform init
 
@@ -45,5 +46,6 @@ jobs:
         uses: reviewdog/action-tfsec@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          working_directory: .
           reporter: github-pr-review
           filter_mode: nofilter
