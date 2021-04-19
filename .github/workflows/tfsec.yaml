@@ -10,11 +10,18 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2
 
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Initialize Terrafrom
+        working-directory: .
+        run: |
+          terraform init
+
       - name: tfsec
         uses: reviewdog/action-tfsec@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
-          working_directory: .
           filter_mode: nofilter
           level: info
