@@ -45,5 +45,5 @@ jobs:
         uses: reviewdog/action-tfsec@master
         with:
           github_token: ${{ secrets.github_token }}
-          reporter: "github-check"
+          reporter: "github-pr-review"
           filter_mode: "nofilter"
