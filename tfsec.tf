@@ -14,7 +14,7 @@ resource "aws_security_group" "example" {
 
 resource "aws_security_group_rule" "example_rule" {
   security_group_id = aws_security_group.example.id
-  description       = "Allow all traffic from Internet which will make tfsec much cranky"
+  description       = "Allow all traffic from Internet which will make tfsec so cranky"
 
   type      = "ingress"
   from_port = "0"
