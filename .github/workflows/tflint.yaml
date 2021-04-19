@@ -26,7 +26,6 @@ jobs:
           flags: --module
   
   tfsec:
-    name: tfsec / ubuntu
     runs-on: ubuntu-latest
 
     steps:
@@ -45,7 +44,6 @@ jobs:
       - name: Run tfsec with review comment on PR
         uses: reviewdog/action-tfsec@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          working_directory: .
-          reporter: github-pr-review
-          filter_mode: nofilter
+          github_token: ${{ secrets.github_token }}
+          reporter: "github-check"
+          filter_mode: "nofilter"
