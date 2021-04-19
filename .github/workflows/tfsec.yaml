@@ -18,10 +18,9 @@ jobs:
         run: |
           terraform init
 
-      - name: tfsec
+      - name: Run tfsec with review comment on PR
         uses: reviewdog/action-tfsec@master
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
-          filter_mode: nofilter
-          level: info
+          github_token: ${{ secrets.github_token }}
+          reporter: "github-pr-review"
+          filter_mode: "nofilter"

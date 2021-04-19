@@ -18,11 +18,11 @@ jobs:
         run: |
           terraform init
 
-      - name: tflint
+      - name: Run tflint with review comment on PR
         uses: reviewdog/action-tflint@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
+          reporter: "github-pr-review"
           flags: "--module"
 
   # macos:
@@ -41,11 +41,11 @@ jobs:
   #       run: |
   #         terraform init
 
-  #     - name: tflint
+  #     - name: Run tflint with review comment on PR
   #       uses: reviewdog/action-tflint@master
   #       with:
   #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         reporter: github-pr-review
+  #         reporter: "github-pr-review"
   #         flags: "--module"
 
   # windows:
@@ -64,9 +64,9 @@ jobs:
   #       run: |
   #         terraform init
 
-  #     - name: tflint
+  #     - name: Run tflint with review comment on PR
   #       uses: reviewdog/action-tflint@master
   #       with:
   #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         reporter: github-pr-review
+  #         reporter: "github-pr-review"
   #         flags: "--module"
