@@ -4,7 +4,7 @@ module "random_name" {
 
 resource "aws_instance" "foo" {
   ami           = "ami-0ff8a91507f77f867"
-  instance_type = "t323.2xlarge" # invalid type!
+  instance_type = "t30003.2xlarge" # invalid type!
 
   tags = {
     Name = module.random_name.result
