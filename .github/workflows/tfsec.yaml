@@ -13,8 +13,8 @@ jobs:
       - name: tfsec
         uses: reviewdog/action-tfsec@master
         with:
-          github_token: "${{ secrets.GITHUB_TOKEN }}"
-          reporter: "github-pr-check"
-          working_directory: "."
-          filter_mode: "nofilter"
-          level: "info"
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          working_directory: .
+          filter_mode: nofilter
+          level: info
