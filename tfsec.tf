@@ -21,8 +21,7 @@ resource "aws_security_group_rule" "example_rule" {
   to_port   = "65535"
   protocol  = "tcp"
 
-  cidr_blocks      = ["0.0.0.0/0"]
-  ipv6_cidr_blocks = ["::/0"]
+  cidr_blocks      = ["0.0.0.0/0"] #tfsec:ignore:AWS006
 }
 
 
