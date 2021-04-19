@@ -42,12 +42,8 @@ jobs:
           terraform init
 
       - name: Run tfsec with review comment on PR
-        uses: vlaaaaaaad/action-tfsec@debug
+        uses: reviewdog/action-tfsec@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          working_directory: .
           reporter: github-pr-review
-          fail_on_error: true
           filter_mode: nofilter
-          level: info
-          flags: --no-color
