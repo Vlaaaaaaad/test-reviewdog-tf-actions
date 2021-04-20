@@ -19,54 +19,54 @@ jobs:
           terraform init
 
       - name: Run tflint with review comment on PR
-        uses: reviewdog/action-tflint@master
+        uses: vlaaaaaaad/action-tflint@rulesets
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
           flags: --module
 
-  # macos:
-  #   name: tflint / macos
-  #   runs-on: macos-latest
+  macos:
+    name: tflint / macos
+    runs-on: macos-latest
 
-  #   steps:
-  #     - name: Clone repo
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
 
-  #     - name: Install Terraform
-  #       uses: hashicorp/setup-terraform@v1
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v1
 
-  #     - name: Initialize Terrafrom
-  #       working-directory: .
-  #       run: |
-  #         terraform init
+      - name: Initialize Terrafrom
+        working-directory: .
+        run: |
+          terraform init
 
-  #     - name: Run tflint with review comment on PR
-  #       uses: reviewdog/action-tflint@master
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         reporter: github-pr-review
-  #         flags: --module
+      - name: Run tflint with review comment on PR
+        uses: vlaaaaaaad/action-tflint@rulesets
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          flags: --module
 
-  # windows:
-  #   name: tflint / windows
-  #   runs-on: windows-latest
+  windows:
+    name: tflint / windows
+    runs-on: windows-latest
 
-  #   steps:
-  #     - name: Clone repo
-  #       uses: actions/checkout@v2
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
 
-  #     - name: Install Terraform
-  #       uses: hashicorp/setup-terraform@v1
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v1
 
-  #     - name: Initialize Terrafrom
-  #       working-directory: .
-  #       run: |
-  #         terraform init
+      - name: Initialize Terrafrom
+        working-directory: .
+        run: |
+          terraform init
 
-  #     - name: Run tflint with review comment on PR
-  #       uses: reviewdog/action-tflint@master
-  #       with:
-  #         github_token: ${{ secrets.GITHUB_TOKEN }}
-  #         reporter: github-pr-review
-  #         flags: --module
+      - name: Run tflint with review comment on PR
+        uses: vlaaaaaaad/action-tflint@rulesets
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-review
+          flags: --module
