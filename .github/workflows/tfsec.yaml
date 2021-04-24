@@ -17,13 +17,15 @@ jobs:
         working-directory: .
         run: |
           terraform init
-
-      - name: Run tfsec with review comment on PR
-        uses: vlaaaaaaad/action-tfsec@revamp--composite-windows
+    
+      - name: Run tfsec with reviewdog output on the PR
+        uses: reviewdog/action-tfsec@revamp-n-move-to-composite
         with:
           github_token: ${{ secrets.github_token }}
-          working_directory: .
-          reporter: github-pr-review
-          fail_on_error: true
-          filter_mode: nofilter
-          level: info
+          working_directory: . # Change working directory
+          reviewdog_log_level: info # Get more output from reviewdog
+          reviewdog_reporter: github-pr-review # Change reviewdog reporter
+          reviewdog_filter_mode: nofilter # Check all files, not just the diff
+          reviewdog_fail_on_error: true # Fail action if errors are found
+          reviewdog_flags: -tee # Add debug flag to reviewdog
+          tfsec_flags: "" # Optional
