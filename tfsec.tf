@@ -3,7 +3,7 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_security_group" "example" {
-  name        = "example"
+  name        = "example2"
   description = "Very complex SG for things"
   vpc_id      = aws_vpc.main.id
 
@@ -21,7 +21,7 @@ resource "aws_security_group_rule" "example_rule" {
   to_port   = "65535"
   protocol  = "tcp"
 
-  cidr_blocks      = ["0.0.0.0/0"]
+  cidr_blocks      = ["0.0.0.0/0"] # comment
   ipv6_cidr_blocks = ["::/0"]
 }
 
